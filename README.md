@@ -1,2 +1,6 @@
-# ipconFix
-Fixes ipconfig if in any case it gets broken,
+# ipConFix
+Fixes ipconfig in case anything gets broken.
+
+## Scripts
+
+* ipConFix.bat - Does all ipConFix commands.
