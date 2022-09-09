@@ -1,25 +1,53 @@
+:: ipConFix
+:: Author: @byronbytes
+:: Version: v3.0
+
 color 02
+title ipConFix 3.0
 
 @echo off
-echo v2.0 - byronbytes
-echo ipConFix will temporarily disable internet connectivity, please close anything that may require internet activity before running this.
-@echo on
+echo ipConFix will temporarily disable internet connectivity, please close anything that may require the internet before running this tool.
+
+echo Please choose an option:
+echo 1. Renew ipconfig
+echo 2. Flush DNS and ARP cache
+echo 3. Show Debug Data
+echo 4. Close ipConFix
 pause
 
-:: Releases IP information, currently there is no more IP connected to the user.
+If %input% == 1 goto FixConfig
+If %input% == 2 goto ClearCache
+If %input% == 3 goto DebugData
+If %input% == 4 echo Now Closing...
+
+@echo on
+
+:FixConfig
+:: Releases IP information, currently there is no IP connected to the user.
 ipconfig /release 
 ipconfig /release6
-
-:: Additionally, clears DNS + ARP cache.
-arp -a -d
-ipconfig /flushdns
-
-:: Renews IP information, IP is being reassigned to the user.
+: Renews IP information, there is a new IP is being reassigned to the user.
 ipconfig /renew
 ipconfig /renew6
+goto EndingMessage
+
+:ClearCache
+:: Clears the DNS and ARP cache.
+arp -a -d
+ipconfig /flushdns
+goto EndingMessage
 
 
+:DebugData
+:: Lists through ALL ipconfig commands, helpful for debugging or troubleshooting.
+ipconfig /displaydns
+ipconfig /showclassid
+pause
+goto EndingMessage
+
+
+:EndingMessage
 @echo off
-echo ipConFix has ran through all commands neccesary, you may close the application now.
+echo You may now close ipConFix.
 @echo on
 pause
