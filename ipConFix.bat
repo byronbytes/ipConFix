@@ -1,9 +1,9 @@
 :: ipConFix
 :: Author: @byronbytes
-:: Version: v3.0
+:: Version: v3.0.1
 
 color 02
-title ipConFix 3.0
+title ipConFix
 
 @echo off
 echo ipConFix will temporarily disable internet connectivity, please close anything that may require the internet before running this tool.
@@ -11,8 +11,8 @@ echo ipConFix will temporarily disable internet connectivity, please close anyth
 echo Please choose an option:
 echo 1. Renew ipconfig
 echo 2. Flush DNS and ARP cache
-echo 3. Show Debug Data
-echo 4. Close ipConFix
+echo 3. Show ipconfig information
+echo 4. Close
 pause
 
 If %input% == 1 goto FixConfig
@@ -47,7 +47,4 @@ goto EndingMessage
 
 
 :EndingMessage
-@echo off
-echo You may now close ipConFix.
-@echo on
 pause
