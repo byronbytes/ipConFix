@@ -26,7 +26,7 @@ If %input% == 4 echo Now Closing...
 :: Releases IP information, currently there is no IP connected to the user.
 ipconfig /release 
 ipconfig /release6
-: Renews IP information, there is a new IP is being reassigned to the user.
+:: Renews IP information, there is a new IP is being reassigned to the user.
 ipconfig /renew
 ipconfig /renew6
 goto EndingMessage
