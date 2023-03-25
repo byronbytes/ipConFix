@@ -1,23 +1,45 @@
 :: ipConFix
 :: Author: @byronbytes
-:: Version: v3.0.1
+:: Version: v4.0.0
 
 color 02
 title ipConFix
 
 @echo off
-echo ipConFix will temporarily disable internet connectivity, please close anything that may require the internet before running this tool.
 
-echo Please choose an option:
+@echo,
+@echo,
+
+:::  _        _____            ______ _      
+::: (_)      / ____|          |  ____(_)     
+::: _ _ __ | |     ___  _ __ | |__   ___  __
+::: | | '_ \| |    / _ \| '_ \|  __| | \ \/ /
+::: | | |_) | |___| (_) | | | | |    | |>  < 
+::: |_| .__/ \_____\___/|_| |_|_|    |_/_/\_\
+:::   | |                                    
+:::   |_|         
+:::
+::: 		(@byronbytes)
+                           
+for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
+
+@echo,  
+@echo,
+echo Please close out of any applications that require internet.
+@echo,
+
 echo 1. Renew ipconfig
 echo 2. Flush DNS and ARP cache
 echo 3. Show ipconfig information
 echo 4. Close
+set input=
+set /p input= Please choose an option:
+
 
 If %input% == 1 goto FixConfig
 If %input% == 2 goto ClearCache
 If %input% == 3 goto DebugData
-If %input% == 4 echo Now Closing...
+If %input% == 4 goto EndingMessage
 
 @echo on
 
