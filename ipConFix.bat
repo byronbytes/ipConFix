@@ -13,7 +13,6 @@ echo 1. Renew ipconfig
 echo 2. Flush DNS and ARP cache
 echo 3. Show ipconfig information
 echo 4. Close
-pause
 
 If %input% == 1 goto FixConfig
 If %input% == 2 goto ClearCache
